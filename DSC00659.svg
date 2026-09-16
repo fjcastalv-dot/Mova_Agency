@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" width="1200" height="900">
+  <defs>
+    <radialGradient id="sunGlow" cx="60%" cy="30%" r="80%">
+      <stop offset="0%" stop-color="#FFF5EB"/>
+      <stop offset="50%" stop-color="#F7E6D5"/>
+      <stop offset="100%" stop-color="#DEC3A8"/>
+    </radialGradient>
+    <radialGradient id="skin" cx="50%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#E8B896"/>
+      <stop offset="70%" stop-color="#D99F7B"/>
+      <stop offset="100%" stop-color="#C2845E"/>
+    </radialGradient>
+    <filter id="pearlShine" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <!-- Background Warm Tropical Sunlit Ambience -->
+  <rect width="1200" height="900" fill="url(#sunGlow)"/>
+
+  <!-- Woman Torso, Neck & Collarbone -->
+  <g id="model">
+    <!-- Neck and Decomposed Silhouette -->
+    <path d="M480,0 L480,240 Q480,380 600,420 Q720,380 720,240 L720,0 Z" fill="url(#skin)"/>
+    <!-- Chest / Decollete Area -->
+    <path d="M300,400 Q600,450 900,400 L950,900 L250,900 Z" fill="url(#skin)"/>
+
+    <!-- Subtle Collarbones Anatomy Shadows -->
+    <path d="M420,380 Q520,395 580,410" stroke="#B87550" stroke-width="4" stroke-linecap="round" fill="none" opacity="0.4"/>
+    <path d="M780,380 Q680,395 620,410" stroke="#B87550" stroke-width="4" stroke-linecap="round" fill="none" opacity="0.4"/>
+
+    <!-- Burgundy / Wine Inner Silk Top -->
+    <path d="M460,530 Q600,640 740,530 L760,900 L440,900 Z" fill="#6A1B29"/>
+
+    <!-- Crisp Relaxed Open White Linen Shirt (Left and Right Flaps) -->
+    <!-- Left Flap -->
+    <path d="M220,320 Q360,360 470,520 Q440,700 420,900 L160,900 L120,400 Z" fill="#FDFEFE"/>
+    <path d="M470,520 Q400,680 370,900" stroke="#E0E0E0" stroke-width="3" fill="none"/>
+    <!-- Right Flap -->
+    <path d="M980,320 Q840,360 730,520 Q760,700 780,900 L1040,900 L1080,400 Z" fill="#FDFEFE"/>
+    <path d="M730,520 Q800,680 830,900" stroke="#E0E0E0" stroke-width="3" fill="none"/>
+  </g>
+
+  <!-- The Artisanal Gemstone & Baroque Freshwater Pearl Necklace -->
+  <g id="necklace" filter="url(#pearlShine)">
+    <!-- Silk Cord Path (Collar Necklace Curve) -->
+    <path d="M460,330 Q600,530 740,330" stroke="#D7CCC8" stroke-width="3" fill="none" stroke-linecap="round"/>
+
+    <!-- Handcrafted Gemstone Beads Along the Arc -->
+    <!-- Left Side -->
+    <circle cx="475" cy="350" r="14" fill="#00897B" stroke="#004D40" stroke-width="1.5"/><!-- Turquoise/Jade -->
+    <circle cx="495" cy="378" r="13" fill="#E65100" stroke="#BF360C" stroke-width="1.5"/><!-- Carnelian -->
+    <circle cx="516" cy="405" r="15" fill="#8E24AA" stroke="#4A148C" stroke-width="1.5"/><!-- Amethyst -->
+    
+    <!-- Baroque Pearl 1 -->
+    <ellipse cx="540" cy="430" rx="18" ry="15" fill="#FFFDE7" stroke="#E0E0E0" stroke-width="2"/>
+    <circle cx="536" cy="426" r="4" fill="#FFFFFF"/>
+
+    <circle cx="566" cy="450" r="14" fill="#FDD835" stroke="#F57F17" stroke-width="1.5"/><!-- Citrine -->
+    <circle cx="590" cy="460" r="15" fill="#1E88E5" stroke="#0D47A1" stroke-width="1.5"/><!-- Lapis -->
+    
+    <!-- Centerpiece Baroque Pearl 2 -->
+    <ellipse cx="616" cy="462" rx="20" ry="17" fill="#FFFFFF" stroke="#E0E0E0" stroke-width="2"/>
+    <circle cx="612" cy="457" r="5" fill="#FFFFFF"/>
+
+    <circle cx="642" cy="452" r="14" fill="#E91E63" stroke="#880E4F" stroke-width="1.5"/><!-- Rose Tourmaline -->
+    <circle cx="666" cy="434" r="13" fill="#43A047" stroke="#1B5E20" stroke-width="1.5"/><!-- Green Tourmaline -->
+    
+    <!-- Baroque Pearl 3 -->
+    <ellipse cx="688" cy="410" rx="18" ry="15" fill="#FFFDE7" stroke="#E0E0E0" stroke-width="2"/>
+    <circle cx="684" cy="406" r="4" fill="#FFFFFF"/>
+
+    <circle cx="708" cy="382" r="14" fill="#FB8C00" stroke="#E65100" stroke-width="1.5"/><!-- Amber Citrine -->
+    <circle cx="726" cy="354" r="13" fill="#3949AB" stroke="#1A237E" stroke-width="1.5"/><!-- Sodalite -->
+  </g>
+
+  <!-- Editorial Vignette & Branding Tag -->
+  <rect x="40" y="40" width="370" height="52" rx="10" fill="#1B1B1B" opacity="0.85"/>
+  <text x="60" y="73" font-family="'Hanken Grotesk', 'Arial', sans-serif" font-size="16" font-weight="bold" fill="#FFF" letter-spacing="2">MOVA • JOYERÍA &amp; LOOKBOOK EDITORIAL</text>
+</svg>
