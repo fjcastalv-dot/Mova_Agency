@@ -34,8 +34,8 @@ export const DroneVideoCard: React.FC<DroneVideoCardProps> = () => {
             const target = e.currentTarget;
             if (target.src.includes('.mp4')) {
               target.src = 'https://res.cloudinary.com/boofzznx/video/upload/v1789433129/dji_fly_20250819_164004_6_1755653543344_video.mov';
-            } else if (!target.src.includes('/videos/drone-bayview.mp4')) {
-              target.src = '/videos/drone-bayview.mp4';
+            } else if (!target.src.includes('videos/drone-bayview.mp4')) {
+              target.src = `${import.meta.env.BASE_URL}videos/drone-bayview.mp4`;
             }
           }}
         />

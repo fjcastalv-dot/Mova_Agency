@@ -32,8 +32,8 @@ export const ProductionVideoCard: React.FC<ProductionVideoCardProps> = ({ onOpen
           className="w-full h-full object-cover opacity-90 transition-transform duration-700 group-hover:scale-105"
           onError={(e) => {
             const target = e.currentTarget;
-            if (!target.src.includes('/videos/reel-asesora.mp4')) {
-              target.src = '/videos/reel-asesora.mp4';
+            if (!target.src.includes('videos/reel-asesora.mp4')) {
+              target.src = `${import.meta.env.BASE_URL}videos/reel-asesora.mp4`;
             }
           }}
         />
