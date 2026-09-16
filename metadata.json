@@ -1,0 +1,6 @@
+{
+  "name": "MOVA Agency",
+  "description": "Sitio web interactivo para MOVA, agencia creativa y digital con diseño estratégico y minimalismo cinético.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
