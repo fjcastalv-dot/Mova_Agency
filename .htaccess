@@ -1,0 +1,40 @@
+# ----------------------------------------------------------------------
+# MOVA Agency - cPanel Apache Configuration (.htaccess)
+# ----------------------------------------------------------------------
+
+# 1. Default Directory Index (load index.html before index.php)
+DirectoryIndex index.html index.php
+
+# 2. SPA Fallback (Redirect non-file requests to index.html)
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+  RewriteRule ^index\.html$ - [L]
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule . /index.html [L]
+</IfModule>
+
+# 3. Proper MIME types
+<IfModule mod_mime.c>
+  AddType text/html .html
+  AddType text/css .css
+  AddType application/javascript .js .mjs
+  AddType application/json .json
+  AddType image/svg+xml .svg
+  AddType video/mp4 .mp4
+  AddType image/webp .webp
+  AddType font/woff2 .woff2
+</IfModule>
+
+# 4. Gzip / Deflate Compression
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css application/javascript application/json image/svg+xml
+</IfModule>
+
+# 5. Security Headers
+<IfModule mod_headers.c>
+  Header set X-Content-Type-Options "nosniff"
+  Header set X-Frame-Options "SAMEORIGIN"
+  Header set X-XSS-Protection "1; mode=block"
+</IfModule>
