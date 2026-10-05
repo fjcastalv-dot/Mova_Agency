@@ -5,7 +5,7 @@ import {defineConfig} from 'vite';
 
 export default defineConfig(() => {
   return {
-    base: '/Mova_Agency/',
+    base: './',
     plugins: [react(), tailwindcss()],
     resolve: {
       alias: {

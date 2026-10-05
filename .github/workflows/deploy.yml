@@ -34,13 +34,21 @@ jobs:
         run: npm install
 
       - name: Build project
-        run: npm run build
+        run: |
+          npm run build
+          cp public/.htaccess dist/.htaccess
 
       - name: Deploy to gh-pages branch
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           folder: dist
           branch: gh-pages
+
+      - name: Upload cPanel build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: movacreative-cpanel-ready
+          path: dist/
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
