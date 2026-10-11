@@ -155,7 +155,7 @@ export const MOVA_METHODOLOGY_STEPS: MethodologyStep[] = [
     icon: 'explore',
     tag: 'Fase 01',
     details: [
-      'Entrevistas con stakeholders',
+      'Entrevista inicial',
       'Análisis de la marca y competidores',
       'Identificación del público objetivo'
     ]
@@ -203,7 +203,7 @@ export const MOVA_METHODOLOGY_STEPS: MethodologyStep[] = [
     icon: 'rocket_launch',
     tag: 'Fase 05',
     details: [
-      'Entrega oficial de assets y herramientas',
+      'Entrega oficial de herramientas',
       'Lanzamiento e implementación de campaña',
       'Seguimiento y fortalecimiento de marca'
     ]
