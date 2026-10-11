@@ -78,7 +78,7 @@ export const ProductionVideoCard: React.FC<ProductionVideoCardProps> = ({ onOpen
             onClick={onOpenReelModal}
             className="flex items-center gap-2 text-[#e45831] text-xs font-bold uppercase tracking-widest group/btn hover:text-white transition-colors"
           >
-            <span>VER REEL AUDIOVISUAL</span>
+            <span>VER REEL</span>
             <span className="material-symbols-outlined text-sm transition-transform group-hover/btn:translate-x-1">
               arrow_forward
             </span>

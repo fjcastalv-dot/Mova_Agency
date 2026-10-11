@@ -82,19 +82,9 @@ export const DroneVideoCard: React.FC<DroneVideoCardProps> = () => {
               AÉREO
             </span>
           </div>
-          <h3 className="font-['Hanken_Grotesk'] text-xl sm:text-2xl font-bold text-white mb-1">
+          <h3 className="font-['Hanken_Grotesk'] text-xl sm:text-2xl font-bold text-white">
             Fotografía y video con dron
           </h3>
-          <p className="text-white/80 text-xs font-normal font-['Inter',sans-serif] mb-3">
-            Perspectivas 4K aéreas con pilotos certificados para todo tipo de proyectos.
-          </p>
-
-          <div className="flex items-center gap-2 text-[#e45831] text-xs font-bold uppercase tracking-widest group-hover:text-white transition-colors">
-            <span>VER EN VENTANA FLOTANTE</span>
-            <span className="material-symbols-outlined text-sm transition-transform group-hover:translate-x-1">
-              open_in_full
-            </span>
-          </div>
         </div>
       </div>
 
