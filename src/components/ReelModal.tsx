@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
+import { createPortal } from 'react-dom';
 
 interface ReelModalProps {
   isOpen: boolean;
@@ -39,6 +40,17 @@ export const ReelModal: React.FC<ReelModalProps> = ({ isOpen, onClose }) => {
     setActiveProjectIndex((prev) => (prev === REEL_VIDEOS.length - 1 ? 0 : prev + 1));
   }, []);
 
+  // Lock body scroll when modal is open
+  useEffect(() => {
+    if (isOpen) {
+      const originalOverflow = document.body.style.overflow;
+      document.body.style.overflow = 'hidden';
+      return () => {
+        document.body.style.overflow = originalOverflow;
+      };
+    }
+  }, [isOpen]);
+
   // Keyboard navigation (ArrowLeft, ArrowRight, Escape)
   useEffect(() => {
     if (!isOpen) return;
@@ -61,38 +73,44 @@ export const ReelModal: React.FC<ReelModalProps> = ({ isOpen, onClose }) => {
 
   const currentProject = REEL_VIDEOS[activeProjectIndex];
 
-  return (
+  return createPortal(
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-black/85 backdrop-blur-xl animate-fade-in"
+      className="fixed inset-0 z-[100] flex items-center justify-center p-3 sm:p-6 bg-black/85 backdrop-blur-xl animate-fade-in"
       onClick={onClose}
     >
       <div
-        className="relative w-full max-w-3xl bg-[#111111] text-white rounded-2xl border border-white/10 overflow-hidden shadow-2xl flex flex-col"
+        className="relative w-full max-w-3xl max-h-[92vh] bg-[#111111] text-white rounded-2xl border border-white/10 overflow-hidden shadow-2xl flex flex-col my-auto"
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Top bar */}
-        <div className="flex justify-between items-center px-5 sm:px-6 py-4 border-b border-white/10 bg-black/60">
-          <div className="flex items-center gap-3">
-            <span className="relative flex h-2.5 w-2.5">
+        {/* Top Header Bar with Video Title */}
+        <div className="flex items-center justify-between px-5 sm:px-6 py-3.5 border-b border-white/10 bg-black/70 gap-3">
+          {/* Left: Brand + Title in the top bar */}
+          <div className="flex items-center gap-3 min-w-0">
+            <span className="relative flex h-2.5 w-2.5 shrink-0">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#e45831] opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#e45831]"></span>
             </span>
-            <span className="font-['Hanken_Grotesk'] text-xs uppercase tracking-widest text-[#e45831] font-bold">
+            <span className="font-['Hanken_Grotesk'] text-xs uppercase tracking-widest text-[#e45831] font-bold shrink-0">
               MOVA AGENCY
             </span>
+            <span className="text-white/30 hidden sm:inline">•</span>
+            <h4 className="text-xs sm:text-sm font-semibold text-white truncate min-w-0">
+              {currentProject.title}
+            </h4>
           </div>
 
-          <div className="flex items-center gap-4">
-            <span className="text-xs font-mono text-white/50 tracking-wider">
+          {/* Right: Counter + Close Button */}
+          <div className="flex items-center gap-3 shrink-0">
+            <span className="text-xs font-mono text-[#e45831] bg-[#e45831]/10 px-2.5 py-0.5 rounded border border-[#e45831]/20 tracking-wider">
               0{activeProjectIndex + 1} / 0{REEL_VIDEOS.length}
             </span>
             <button
               onClick={onClose}
-              className="w-9 h-9 rounded-full bg-white/10 hover:bg-[#e45831] transition-colors flex items-center justify-center text-white cursor-pointer"
+              className="w-8 h-8 rounded-full bg-white/10 hover:bg-[#e45831] transition-colors flex items-center justify-center text-white cursor-pointer"
               title="Cerrar"
               aria-label="Cerrar modal"
             >
-              <span className="material-symbols-outlined text-xl">close</span>
+              <span className="material-symbols-outlined text-lg">close</span>
             </button>
           </div>
         </div>
@@ -132,20 +150,9 @@ export const ReelModal: React.FC<ReelModalProps> = ({ isOpen, onClose }) => {
             playsInline
             className="w-auto h-full max-h-[65vh] sm:max-h-[75vh] max-w-full object-contain mx-auto"
           />
-
-          {/* Minimal Caption at bottom overlay */}
-          <div className="absolute bottom-3 left-0 right-0 px-6 py-2 bg-gradient-to-t from-black/85 via-black/40 to-transparent pointer-events-none flex justify-center">
-            <div className="text-center">
-              <p className="text-xs sm:text-sm font-bold text-white tracking-wide">
-                {currentProject.title}
-              </p>
-              <p className="text-[10px] text-white/60 tracking-wider uppercase font-mono">
-                {currentProject.subtitle}
-              </p>
-            </div>
-          </div>
         </div>
       </div>
-    </div>
+    </div>,
+    document.body
   );
 };
