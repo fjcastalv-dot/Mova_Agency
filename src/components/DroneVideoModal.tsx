@@ -10,7 +10,7 @@ interface DroneVideoModalProps {
 export const DRONE_GALLERY_VIDEOS = [
   {
     id: 1,
-    title: 'Toma Aérea Cancún • DJI Fly 4K',
+    title: 'Toma Aérea Cancún',
     subtitle: 'Perspectivas Aéreas MOVA • Caribe Mexicano',
     videoUrl: 'https://res.cloudinary.com/boofzznx/video/upload/v1789433129/dji_fly_20250819_164004_6_1755653543344_video.mp4',
     fallbackUrl: 'https://res.cloudinary.com/boofzznx/video/upload/v1789433129/dji_fly_20250819_164004_6_1755653543344_video.mov',
